@@ -11,7 +11,7 @@ to run, execute 3_less.c
 
 if your not using windows you probably have to change the compiler flags at the top
 
-the level is defined in roomgen.py starting on line 421
+the level is defined in roomgen.py starting at https://github.com/en-GB/3-manifold/blob/c2d73fb0486ba64046243ac694ae94e6bbf586b4/3_roomgen.py#L421
 
 # windows build instructions:
 
