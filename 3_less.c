@@ -321,13 +321,13 @@ fn void loop(GLFWwindow *window) {
 		
 		void main() {
 			// you can change the colors here
-			vec3 H = fwidth(hash23(floor(gl_FragCoord.xy * .75)));
-			vec3 w = u_scale - abs(v_vert);
-			vec3 a = vec3(101.1234, 132.534, 647.12);
-			float t = step(0., floor(dot(sin(v_vert + H*fwidth(v_vert)), u_scale))) * .1;
-			vec3 c = fract(1. / cos(u_pos.w) * a + t + v_nor * .1);
-			c = c / (c + dot(1. / (1. + w*w), vec3(.2)) + H * .1);
-			o_color = vec4(pow(c, vec3(.5)), 1.0);
+			vec3 H = vec3(0);
+            		vec3 w = u_scale - abs(v_vert);
+            		vec3 a = vec3(101.1234, 132.534, 647.12);
+            		float t = step(0., floor(dot(sin(v_vert + H*fwidth(v_vert)), u_scale))) * 1;
+            		vec3 c = fract(1. / cos(u_pos.w) * a + t + v_nor * .1);
+            		c = c / (c + dot(1. / (1. + w*w), vec3(0.2)) + H * .1);
+            		o_color = vec4(pow(c, vec3(2.0)), 1.0);
 		}
 	));
 	
@@ -372,11 +372,10 @@ fn void loop(GLFWwindow *window) {
 		
 		// that one tunnel that keeps growing and shrinking
 		{
-			float g = 2;
-			room12.d = 10.1 - 10*sin(g*gtime);
-			room13.d = 10.1 + 10*sin(g*gtime);
-			room12._d = -10*g*cos(g*gtime);
-			room13._d = +10*g*cos(g*gtime);
+			\*blah
+			blah
+			blah
+			blah*\
 		}
 		
 		float dt = time - gtime;
