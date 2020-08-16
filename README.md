@@ -1,4 +1,4 @@
-# 3-manifold
+# World-of-reflections
 
 
 https://www.youtube.com/watch?v=CBPTcUxIISQ
@@ -27,3 +27,5 @@ the level is defined in roomgen.py starting on line 421
 - ~to install clang type in ``pacman -S mingw-w64-x86_64-clang`` and press enter ~
 - ~to install glfw type in ``pacman -S mingw-w64-x86_64-glfw`` and press enter~
 - ~then drag 3_less.c into the window and press enter~
+
+(World-of-reflections does NOT have any reflections it just sounded cool when I renamed it)
