@@ -1,5 +1,3 @@
-from string import Template
-
 header = ""
 
 # lsroom: list of lists.
@@ -28,7 +26,7 @@ def linkrgt(id0, id1, a, b, c, d, z, y):
     r = lsroom[id0]
     s = ", ".join(map(lambda x: "%ff" % x, (a, b, c, d)))
 
-    r[0] += Template("""
+    r[0] += r"""
         if(+v.px < room${id0}.w) {
             View door = View_through_rgt(v, room${id0}.w, ${s});
             door.px -= room${id0}.w + room${id1}.w;
@@ -37,9 +35,9 @@ def linkrgt(id0, id1, a, b, c, d, z, y):
             if (--depth) room${id1}_render(door);
             depth++;
         }
-    """).substitute(locals())
+    """.format(locals())
 
-    r[1] += Template("""
+    r[1] += r"""
         if(v.pz >= ${a}f+d &&
             v.pz <= ${b}f-d &&
             v.py >= ${c}f-d &&
@@ -72,7 +70,7 @@ def linkrgt(id0, id1, a, b, c, d, z, y):
                 return v;
             }
 
-    """).substitute(locals())
+    """.format(locals())
 
 def linklft(id0, id1, a, b, c, d, z, y):
 
@@ -86,7 +84,7 @@ def linklft(id0, id1, a, b, c, d, z, y):
     r = lsroom[id0]
     s = ", ".join(map(lambda x: "%ff" % x, (a, b, c, d)))
 
-    r[0] += Template("""
+    r[0] += r"""
         if(-v.px < room${id0}.w) {
             View door = View_through_lft(v, -room${id0}.w, ${s});
             door.px += room${id0}.w + room${id1}.w;
@@ -95,9 +93,9 @@ def linklft(id0, id1, a, b, c, d, z, y):
             if (--depth) room${id1}_render(door);
             depth++;
         }
-    """).substitute(locals())
+    """.format(locals())
 
-    r[1] += Template("""
+    r[1] += r"""
         if(v.pz >= ${a}f+d &&
            v.pz <= ${b}f-d &&
            v.py >= ${c}f+d &&
@@ -123,7 +121,7 @@ def linklft(id0, id1, a, b, c, d, z, y):
 
                 return v;
             }
-    """).substitute(locals())
+    """.format(locals())
 
 
 def linkuwd(id0, id1, a, b, c, d, x, z):
@@ -138,7 +136,7 @@ def linkuwd(id0, id1, a, b, c, d, x, z):
     r = lsroom[id0]
     s = ", ".join(map(lambda x: "%ff" % x, (a, b, c, d)))
 
-    r[0] += Template("""
+    r[0] += r"""
         if(+v.py < room${id0}.h) {
             View door = View_through_uwd(v, room${id0}.h, ${s});
             door.px -= ${x}f;
@@ -147,9 +145,9 @@ def linkuwd(id0, id1, a, b, c, d, x, z):
             if(--depth) room${id1}_render(door);
             depth++;
         }
-    """).substitute(locals())
+    """.format(locals())
 
-    r[1] += Template("""
+    r[1] += r"""
         if(v.px >= ${a}f+d &&
            v.px <= ${b}f-d &&
            v.pz >= ${c}f+d &&
@@ -174,7 +172,7 @@ def linkuwd(id0, id1, a, b, c, d, x, z):
 
                 return v;
            }
-    """).substitute(locals())
+    """.format(locals())
 
 def linkdwn(id0, id1, a, b, c, d, x, z):
 
@@ -188,7 +186,7 @@ def linkdwn(id0, id1, a, b, c, d, x, z):
     r = lsroom[id0]
     s = ", ".join(map(lambda x: "%ff" % x, (a, b, c, d)))
 
-    r[0] += Template("""
+    r[0] += r"""
         if(-v.py < room${id0}.h) {
             View door = View_through_dwn(v, -room${id0}.h, ${s});
             door.px -= ${x}f;
@@ -196,9 +194,9 @@ def linkdwn(id0, id1, a, b, c, d, x, z):
             door.pz -= ${z}f;
             if(--depth) room${id1}_render(door);
             depth++;
-        }""").substitute(locals())
+        }""".format(locals())
 
-    r[1] += Template("""
+    r[1] += r"""
         if(v.px >= ${a}f+d &&
            v.px <= ${b}f-d &&
            v.pz >= ${c}f+d &&
@@ -223,9 +221,9 @@ def linkdwn(id0, id1, a, b, c, d, x, z):
             v.vz = 0;
 
             return v;
-        }""").substitute(locals())
+        }""".format(locals())
 
-    r[2] += Template("""
+    r[2] += r"""
         if (v.px >= ${a}f &&
             v.px <= ${b}f &&
             v.pz >= ${c}f &&
@@ -235,7 +233,7 @@ def linkdwn(id0, id1, a, b, c, d, x, z):
                 v.pz -= ${z}f;
                 return room${id1}_cast_down(v, d);
         }
-    """).substitute(locals())
+    """.format(locals())
 
 def linkfwd(id0, id1, a, b, c, d, x, y):
 
@@ -249,7 +247,7 @@ def linkfwd(id0, id1, a, b, c, d, x, y):
     r = lsroom[id0]
     s = ", ".join(map(lambda x: "%ff" % x, (a, b, c, d)))
 
-    r[0] += Template("""
+    r[0] += r"""
         if(+v.pz < room${id0}.d) {
             View door = View_through_fwd(v, room${id0}.d, ${s});
             door.px -= ${x}f;
@@ -258,9 +256,9 @@ def linkfwd(id0, id1, a, b, c, d, x, y):
             if(--depth) room${id1}_render(door);
             depth++;
         }
-    """).substitute(locals())
+    """.format(locals())
 
-    r[1] += Template("""
+    r[1] += r"""
         if(v.px >= ${a}f+d &&
            v.px <= ${b}f-d &&
            v.py >= ${c}f+d &&
@@ -288,7 +286,7 @@ def linkfwd(id0, id1, a, b, c, d, x, y):
 
                 return v;
            }
-    """).substitute(locals())
+    """.format(locals())
 
 def linkbwd(id0, id1, a, b, c, d, x, y):
 
@@ -302,7 +300,7 @@ def linkbwd(id0, id1, a, b, c, d, x, y):
     r = lsroom[id0]
     s = ", ".join(map(lambda x: "%ff" % x, (a, b, c, d)))
 
-    r[0] += Template("""
+    r[0] += r"""
         if (-v.pz < room${id0}.d) {
             View door = View_through_bwd(v, -room${id0}.d, ${s});
             door.px -= ${x}f;
@@ -311,9 +309,9 @@ def linkbwd(id0, id1, a, b, c, d, x, y):
             if (--depth) room${id1}_render(door);
             depth++;
         }
-    """).substitute(locals())
+    """.format(locals())
 
-    r[1] += Template("""
+    r[1] += r"""
         if(v.px >= ${a}f+d &&
            v.px <= ${b}f-d &&
            v.py >= ${c}f+d &&
@@ -341,7 +339,7 @@ def linkbwd(id0, id1, a, b, c, d, x, y):
 
                return v;
            }
-    """).substitute(locals())
+    """.format(locals())
 
 
 def rgt(id0, z0, y0, id1, z1, y1, d, h):
@@ -392,7 +390,7 @@ def room(w, h, d):
     global header, lsroom
 
     index = len(lsroom)
-    header += Template("""
+    header += r"""
         fn void room${index}_render(View v);
         fn View room${index}_update(View v, Room **r, float w, float d, float dt);
         fn float room${index}_cast_down(View v, float d);
@@ -403,7 +401,7 @@ def room(w, h, d):
             room${index}_update,
             room${index}_cast_down
         };
-    """).substitute(locals())
+    """.format(locals())
 
     # allocates space for the room
     lsroom.append(["", "", ""])
@@ -417,7 +415,7 @@ def out():
     print(header)
     for index, (r, u, c) in enumerate(lsroom):
         s = "room%d.w, room%d.h, room%d.d" % (index, index, index)
-        print(Template("""
+        print(r"""
             fn void room${index}_render(View v) {
                 if(v.xy[0] * v.xy[3] - v.xy[1] * v.xy[2] < 0) return;
                 if(v.yz[0] * v.yz[3] - v.yz[1] * v.yz[2] < 0) return;
@@ -455,7 +453,7 @@ def out():
 
                 return v.py + room${index}.h;
             }
-        """).substitute(locals()))
+        """.format(locals())
 
 
 # a = room(1, 2, 2)
