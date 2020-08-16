@@ -1,17 +1,7 @@
 # World-of-reflections
 
-
-https://www.youtube.com/watch?v=CBPTcUxIISQ
-
-i made this around 2016
-
-
-
-to run, execute 3_less.c
-
-if your not using windows you probably have to change the compiler flags at the top
-
-the level is defined in roomgen.py starting on line 421
+Based off of (3-manifold)[https://github.com/en-GB/3-manifold]
+Made in my spare time and complicated.
 
 # apt-based linux instructions:
 - If not installed install g++ with ``sudo apt install gcc``
