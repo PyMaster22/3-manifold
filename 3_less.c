@@ -410,11 +410,11 @@ fn void loop(GLFWwindow *window) {
 		
 		// that one tunnel that keeps growing and shrinking
 		{
-			float g = 2;
+			/*float g = 2;
 			room12.d = 10.1 - 10*sin(g*gtime);
 			room13.d = 10.1 + 10*sin(g*gtime);
 			room12._d = -10*g*cos(g*gtime);
-			room13._d = +10*g*cos(g*gtime);
+			room13._d = +10*g*cos(g*gtime);*/
 		}
 		
 		float dt = time - gtime;
