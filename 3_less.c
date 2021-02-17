@@ -437,7 +437,7 @@ fn void loop(GLFWwindow *window) {
 		
 		float speed = 8 - 4 * glfwGetKey(window, GLFW_KEY_LEFT_SHIFT);
 		float accel = 100;
-		float friction = -50;
+		float friction = 50;
 		float air_speed = 1;
 		float air_accel = 150;
 		
