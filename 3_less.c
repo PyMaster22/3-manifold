@@ -357,13 +357,14 @@ fn void loop(GLFWwindow *window) {
 		
 		void main() {
 			// you can change the colors here
-			vec3 H = fwidth(hash23(floor(gl_FragCoord.xy * .75)));
+			vec3 H = fwidth(hash23(floor(gl_FragCoord.xy * 0.75)));
 			vec3 w = u_scale - abs(v_vert);
 			vec3 a = vec3(101.1234, 132.534, 647.12);
-			float t = step(0., floor(dot(sin(v_vert+H*fwidth(v_vert)), u_scale)))*.1;
+			float t = step(0., floor(dot(sin(v_vert+H*fwidth(v_vert)), u_scale)))*0.75;
 			vec3 c = fract(1. / cos(u_pos.w) * a + t + v_nor * .1);
 			c = c / (c + dot(1. / (1. + w*w), vec3(.2)) + H * .1);
 			o_color = vec4(pow(c, vec3(.5)), 1.0);
+			//o_color.rgb = vec3((o_color.r+o_color.g+o_color.b)/3);
 		}
 	));
 	
@@ -436,14 +437,15 @@ fn void loop(GLFWwindow *window) {
 		
 		float speed = 8 - 4 * glfwGetKey(window, GLFW_KEY_LEFT_SHIFT);
 		float accel = 100;
-		float friction = 50;
+		float friction = -50;
 		float air_speed = 1;
 		float air_accel = 150;
 		
-		// speed = 1;
-		// accel = 170;
-		// friction = 0;
-		// air_accel = 170;
+		/* float speed = 0.01;
+		float accel = 170;
+		float friction = -10;
+		float air_speed = 1;
+		float air_accel = 1700; */
 		
 		{
 			int ix = glfwGetKey(window, GLFW_KEY_D) - glfwGetKey(window, GLFW_KEY_A);
